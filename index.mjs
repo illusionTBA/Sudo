@@ -11,26 +11,12 @@ const PORT = 8080;
 
 const app = fastify();
 
-async function startApp() {
-    try {
-        // Serve static files from the "public" directory.
-        app.register(fastifyStatic, {
-            root: path.join(__dirname, 'static')
-        });
-
-        // Define "/" route.
-        app.get('/', {}, (request, reply) => {
-            return reply.sendFile('index.html')
-        });
+app.register(fastifyStatic, {
+    root: path.join(__dirname, 'static')
+}).get('/', (req, res) => {
+    res.sendFile('index.html')
+}).listen(PORT, () => {
+    console.log('site is served at localhost://' + PORT);
+});
 
 
-
-
-        await app.listen(PORT);
-        console.log('site is served at localhost://' + PORT);
-    } catch (e) {
-        console.error(e);
-    }
-}
-
-startApp();
