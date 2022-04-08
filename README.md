@@ -4,6 +4,6 @@
 | Features      | Finished
 | ------------- |:-------------:| 
 | Front end     |  `✔️`         | 
-| Commands      | ❌            | 
-| Web Proxy     | ❌            |  
+| Commands      | `❌`          | 
+| Web Proxy     | `❌`          |  
 
