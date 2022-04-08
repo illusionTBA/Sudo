@@ -3,7 +3,7 @@
 
 /*
 
-- Very ass coding here like i mean REALLY ASS. i will improve later
+- Very ass coding here like i mean REALLY ASS. i will improve later on in development.
 
 */
 
