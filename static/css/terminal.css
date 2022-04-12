@@ -109,7 +109,7 @@ body {
     margin-left: 9px;
     outline: none;
     padding: 0;
-    width: calc(100% - 9px);
+    width: calc(100% - 2px);
 }
 
 
@@ -126,8 +126,13 @@ body {
     padding: 0;
     width: calc(100% - 9px);
     left: 0;
+    /* set height */
+    height: calc(100% - 30px);
+    overflow-y: scroll;
 
 }
+
+
 
 .err{
     color: #ff0000;

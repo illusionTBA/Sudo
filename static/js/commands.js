@@ -42,6 +42,36 @@ termInput.addEventListener("keyup", function (event) {
             output.innerHTML = "";
             output.innerHTML += "cd: no such file or directory: " + termInput.value.substring(3) + "<br>";
             termInput.value = "";
+        } // else if input = "proxy {url}" send them to a url
+        else if (termInput.value.includes("proxy")) {
+            if (termInput.value.includes("https://")) {
+                output.innerHTML = termInput.value.substring(8);
+            } else if (termInput.value.includes("http://")) {
+                var url = termInput.value.substring(8);
+                output.innerHTML = url;
+            } else {
+                output.innerHTML = "";
+                output.innerHTML += "proxy: invalid url: " + termInput.value.substring(7) + "<br>";
+                termInput.value = "";
+            }
+        } else if (termInput.value == "neofetch") {
+            output.innerHTML = "";
+            output.innerHTML += ` <pre>
+            ██████████████████  ████████   Sudo@illusions
+            ██████████████████  ████████   -------------------
+            ██████████████████  ████████   OS: Cumjaro Linux x86_64
+            ██████████████████  ████████   Kernel: 5.10.30-1-MANCUMJARO
+            ████████            ████████   Uptime: 1 day, 23 hours, 38 minutes, and 36 seconds
+            ████████  ████████  ████████   Packages: to much(pacman)
+            ████████  ████████  ████████   Shell: bash 5.1.8
+            ████████  ████████  ████████   Terminal: cumsole
+            ████████  ████████  ████████   CPU: shit cum k590-k @ idc@ghz
+            ████████  ████████  ████████   Memory: 16.5G/32G
+            ████████  ████████  ████████
+            ████████  ████████  ████████
+            ████████  ████████  ████████
+            ████████  ████████  ████████
+            </pre>`;
         } else {
             output.innerHTML = "";
             output.innerHTML += "bash: " + termInput.value + ": command not found<br>";
