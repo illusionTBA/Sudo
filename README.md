@@ -1,4 +1,4 @@
-# ~ Sudo ~ Please note i have moved on to other projects and this will not be updated as much anymore
+# ~ Sudo ~
 
 
 | Features      | Finished
