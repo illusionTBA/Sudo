@@ -12,6 +12,7 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
+  width: 100vw;
 }
 
 #terminal {
@@ -30,6 +31,7 @@ body {
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
   background: linear-gradient(#504b45 0%,#3c3b37 100%);
+  cursor: move;
 }
 
 #bar__buttons {

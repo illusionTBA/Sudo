@@ -1,0 +1,20 @@
+{
+  "name": "sudo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/illusionTBA/Sudo.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/illusionTBA/Sudo/issues"
+  },
+  "homepage": "https://github.com/illusionTBA/Sudo#readme"
+}
