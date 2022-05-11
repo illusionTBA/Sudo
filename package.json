@@ -16,5 +16,12 @@
   "bugs": {
     "url": "https://github.com/illusionTBA/Sudo/issues"
   },
-  "homepage": "https://github.com/illusionTBA/Sudo#readme"
+  "homepage": "https://github.com/illusionTBA/Sudo#readme",
+  "dependencies": {
+    "@fastify/static": "^5.0.2",
+    "bare-server-node": "github:tomphttp/bare-server-node",
+    "fastify": "^3.29.0",
+    "path": "^0.12.7",
+    "url": "^0.11.0"
+  }
 }
