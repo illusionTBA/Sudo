@@ -4,7 +4,7 @@
 | Features      | Finished
 | ------------- |:-------------:| 
 | Front end     |  `✔️`         | 
-| Commands      | `❌`          | 
+| Commands      | `🟡`          | 
 | Web Proxy     | `✔️`          |  
 | Back end      | `🟡`          |
 
