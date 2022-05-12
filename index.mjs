@@ -1,22 +1,18 @@
-import { fastify } from 'fastify';
-import fastifyStatic from '@fastify/static';
-import path from 'path';
-import { fileURLToPath } from 'url';
+import http from 'http';
+import nodeStatic from 'node-static'
 import Server from 'bare-server-node';
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
 const PORT = 8080;
+const bare = new Server('/bare/', '');
+const server = http.createServer();
+const serve = new nodeStatic.Server('static/');
 
-const app = fastify();
-
-app.register(fastifyStatic, {
-    root: path.join(__dirname, 'static')
-}).get('/', (req, res) => {
-    res.sendFile('index.html')
-}).listen(PORT, () => {
-    console.log('site is served at localhost:' + PORT);
+server.on('request', (req, res) => {
+  if (bare.route_request(req, res)) return true;
+  serve.serve(req, res);
+})
+server.on('upgrade', (req, socket, head) => {
+  if(bare.route_upgrade(req, socket, head)) return;
+  socket.end();
 });
-
-
+server.listen(PORT)

@@ -1,7 +1,7 @@
 importScripts('/uv/uv.bundle.js');
 importScripts('/uv/uv.config.js');
 
-class UVServiceWorker extends EventEmitter {     
+class UVServiceWorker extends EventEmitter {
     constructor(config = __uv$config) {
         super();
         if (!config.bare) config.bare = '/bare/';
@@ -26,7 +26,7 @@ class UVServiceWorker extends EventEmitter {
                 'x-xss-protection',
             ],
             forward: [
-                'accept-encoding', 
+                'accept-encoding',
                 'connection',
                 'content-length',
             ],
@@ -38,11 +38,11 @@ class UVServiceWorker extends EventEmitter {
             ]
         };
         this.statusCode = {
-            empty: [ 
+            empty: [
                 204,
                 304,
             ],
-        };  
+        };
         this.config = config;
         this.browser = Ultraviolet.Bowser.getParser(self.navigator.userAgent).getBrowserName();
 
@@ -69,9 +69,9 @@ class UVServiceWorker extends EventEmitter {
             ultraviolet.meta.base = ultraviolet.meta.url = new URL(ultraviolet.sourceUrl(request.url));
 
             const requestCtx = new RequestContext(
-                request, 
-                this, 
-                ultraviolet, 
+                request,
+                this,
+                ultraviolet,
                 !this.method.empty.includes(request.method.toUpperCase()) ? await request.blob() : null
             );
 
@@ -120,8 +120,8 @@ class UVServiceWorker extends EventEmitter {
 
             for (const name of this.headers.csp) {
                 if (responseCtx.headers[name]) delete responseCtx.headers[name];
-            }; 
-            
+            };
+
             if (responseCtx.headers.location) {
                 responseCtx.headers.location = ultraviolet.rewriteUrl(responseCtx.headers.location);
             };
@@ -152,24 +152,24 @@ class UVServiceWorker extends EventEmitter {
                     case 'style':
                         responseCtx.body = ultraviolet.rewriteCSS(
                             await response.text()
-                        ); 
+                        );
                         break;
                 case 'iframe':
                 case 'document':
                         if (isHtml(ultraviolet.meta.url, (responseCtx.headers['content-type'] || ''))) {
                             responseCtx.body = ultraviolet.rewriteHtml(
-                                await response.text(), 
-                                { 
+                                await response.text(),
+                                {
                                     document: true ,
                                     injectHead: ultraviolet.createHtmlInject(
-                                        this.config.handler, 
-                                        this.config.bundle, 
+                                        this.config.handler,
+                                        this.config.bundle,
                                         this.config.config,
-                                        ultraviolet.cookie.serialize(cookies, ultraviolet.meta, true), 
+                                        ultraviolet.cookie.serialize(cookies, ultraviolet.meta, true),
                                         request.referrer
                                     )
                                 }
-                            );      
+                            );
                         };
                 };
             };
@@ -220,7 +220,7 @@ self.UVServiceWorker = UVServiceWorker;
 class ResponseContext {
     constructor(request, response, worker) {
         const { headers, status, statusText, body } = !request.blob ? worker.getBarerResponse(response) : {
-            status: response.status, 
+            status: response.status,
             statusText: response.statusText,
             headers: Object.fromEntries([...response.headers.entries()]),
             body: response.body,
@@ -313,7 +313,7 @@ class HookEvent {
         this.#returnValue = input;
         this.#intercepted = true;
     };
-};  
+};
 
 var R = typeof Reflect === 'object' ? Reflect : null
 var ReflectApply = R && typeof R.apply === 'function'
