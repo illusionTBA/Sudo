@@ -5,6 +5,6 @@
 | ------------- |:-------------:| 
 | Front end     |  `✔️`         | 
 | Commands      | `❌`          | 
-| Web Proxy     | `❌`          |  
+| Web Proxy     | `✔️`          |  
 | Back end      | `🟡`          |
 
